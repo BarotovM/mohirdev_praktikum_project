@@ -1,0 +1,21 @@
+{% extends 'news/base.html' %}
+{% load static %}
+
+{% block title %} Texnologik xabarlar {% endblock title %}
+
+{% block content %}
+
+{% for texnologiya in texnologiya_xabarlari %}
+    <div class="conteiner">
+      <div class="row">
+        <div class="col-sm-8">
+          <a href="{{ texnologiya.get_absolute_url }}">
+          <img src="{{ texnologiya.image.url }}" alt="{{ texnologiya.title }}" style="width:50%">
+          <h2>{{ texnologiya.title }}</h2>
+          </a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+
+{% endblock content %}
