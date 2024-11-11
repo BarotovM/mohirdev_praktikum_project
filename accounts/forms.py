@@ -16,7 +16,7 @@ class LoginForm(forms.Form):
             renderer=None,
     ):
         super().__init__(data, files, auto_id, prefix, initial, error_class, label_suffix, empty_permitted, field_order,
-                         use_required_attribute, renderer)
+                        use_required_attribute, renderer)
         self.cleaned_date = None
 
     userame = forms.CharField()

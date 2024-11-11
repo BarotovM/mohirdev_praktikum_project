@@ -14,7 +14,7 @@ def your_view(request):
 
 
 def news_list(request):
-    new_list = News.published.all()  # Используем только опубликованные новости
+    new_list = News.published.all()
     context = {
         "new_list": new_list
     }
