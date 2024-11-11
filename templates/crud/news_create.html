@@ -1,0 +1,34 @@
+{% extends 'news/base.html' %}
+
+{% load static %}
+
+{% block title %} Yangilikni qo'shish {% endblock title %}
+
+{% block content %}
+  <h2 class="text-center">Yangilik qo'shish</h2>
+  <form method="post" enctype="multipart/form-data">{% csrf_token %}
+    {{ form.as_p }}
+  <button type="submit" class="btn btn-nifo ml-2">Yangilik qo'shish</button>
+  </form>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const titleInput = document.querySelector("#id_title");
+      const slugInput = document.querySelector("#id_slug");
+
+      function slugify(text) {
+        return text.toString().toLowerCase()
+          .replace(/\s+/g, '-')
+          .replace(/[^\w\-]+/g, '')
+          .replace(/\-\-+/g, '-')
+          .replace(/^-+/, '')
+          .replace(/-+$/, '');
+      }
+
+      titleInput.addEventListener("input", function() {
+        const slugText = slugify(titleInput.value);
+        slugInput.value = slugText;
+      });
+    });
+  </script>
+{% endblock %}

@@ -121,7 +121,7 @@
               <h2>Tag</h2>
               <ul class="tag_nav">
                 {% for kategoriya in categories %}
-                <li><a href="#">{{ kategoriya.name }}</a></li>
+                <li><a href="{{ kategoriya.get_absolute_url }}">{{ kategoriya.name }}</a></li>
                 {% endfor %}
               </ul>
             </div>
